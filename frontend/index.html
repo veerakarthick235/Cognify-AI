@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="icon" href="cognify.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CognifyAI Advanced Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Animated Background -->
+<div class="bg-animation">
+  <div class="grid-lines"></div>
+  <div class="floating-particles"></div>
+</div>
+
+<!-- Main Container -->
+<div class="dashboard-container">
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 100 100" class="brain-icon">
+          <circle cx="50" cy="50" r="45" class="brain-circle"/>
+          <path d="M30 50 Q50 20 70 50 Q50 80 30 50" class="brain-path"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <h1>Cognify<span class="ai-text">AI</span></h1>
+        <p class="tagline">Advanced Neural Dashboard</p>
+      </div>
+    </div>
+    <div class="status-indicator">
+      <span class="status-dot"></span>
+      <span class="status-text">SYSTEM ONLINE</span>
+    </div>
+  </header>
+
+  <!-- Control Panel -->
+  <div class="control-panel">
+    <button class="btn btn-primary" onclick="runAnalysis()">
+      <span class="btn-icon">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </span>
+      <span class="btn-text">Run Analysis</span>
+      <span class="btn-glow"></span>
+    </button>
+    
+    <button class="btn btn-secondary" onclick="toggleDemo()" id="demoBtn">
+      <span class="btn-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </span>
+      <span class="btn-text">Auto Demo</span>
+      <span class="btn-glow"></span>
+    </button>
+    
+    <button class="btn btn-accent" onclick="clearHistory()">
+      <span class="btn-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M5 6v14a2 2 0 002 2h10a2 2 0 002-2V6"/></svg>
+      </span>
+      <span class="btn-text">Clear Data</span>
+      <span class="btn-glow"></span>
+    </button>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon analysis-icon">📊</div>
+      <div class="stat-info">
+        <span class="stat-value" id="analysisCount">0</span>
+        <span class="stat-label">Analyses Run</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon intent-icon">🎯</div>
+      <div class="stat-info">
+        <span class="stat-value" id="currentIntent">--</span>
+        <span class="stat-label">Current Intent</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon load-icon">⚡</div>
+      <div class="stat-info">
+        <span class="stat-value" id="loadScore">0%</span>
+        <span class="stat-label">Cognitive Load</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon confidence-icon">✨</div>
+      <div class="stat-info">
+        <span class="stat-value" id="confidence">0%</span>
+        <span class="stat-label">Confidence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="card-header">
+        <h3><span class="header-icon">📈</span> Intent Probability Matrix</h3>
+        <div class="card-badge">LIVE</div>
+      </div>
+      <div class="chart-container">
+        <canvas id="intentChart"></canvas>
+      </div>
+    </div>
+    
+    <div class="chart-card">
+      <div class="card-header">
+        <h3><span class="header-icon">🧠</span> Cognitive Load Analysis</h3>
+        <div class="card-badge">REAL-TIME</div>
+      </div>
+      <div class="chart-container">
+        <canvas id="loadChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- History Section -->
+  <div class="history-card">
+    <div class="card-header">
+      <h3><span class="header-icon">📜</span> Intent History Timeline</h3>
+      <span class="history-count" id="historyCount">0 entries</span>
+    </div>
+    <div class="history-container">
+      <ul id="history" class="history-list"></ul>
+      <div class="empty-state" id="emptyState">
+        <span class="empty-icon">🔮</span>
+        <p>No analysis data yet. Click "Run Analysis" to begin.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>CognifyAI Neural Dashboard v2.0 | <span class="pulse-text">●</span> Connected</p>
+  </footer>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
